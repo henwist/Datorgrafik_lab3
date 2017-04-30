@@ -1,0 +1,45 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+#bin objects
+bin/
+**bin/
+
+#obj objects
+obj/
+**/obj/
+
+#.suo objects
+*.suo
+.suo
+**/.suo
+
+Datorgrafik_lab1/.vs/Datorgrafik_lab1/v14/.suo
+/GameEngine/Objects/Vecor3.cs
