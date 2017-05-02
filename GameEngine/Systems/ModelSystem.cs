@@ -54,17 +54,17 @@ namespace GameEngine.Systems
                 qY.Normalize();
                 qX.Normalize();
 
-                m.chopperMeshWorldMatrices[0] = Matrix.CreateTranslation(m.chopperMeshWorldMatrices[0].Translation)
+                m.modelMeshWorldMatrices[0] = Matrix.CreateTranslation(m.modelMeshWorldMatrices[0].Translation)
                     //* Matrix.CreateRotationY(chopper.rotorAngle)
                     * Matrix.CreateFromQuaternion(qY)
-                    * Matrix.CreateTranslation(-m.chopperMeshWorldMatrices[0].Translation);
+                    * Matrix.CreateTranslation(-m.modelMeshWorldMatrices[0].Translation);
 
-                m.chopperMeshWorldMatrices[1] = Matrix.CreateTranslation(Vector3.Zero);
+                m.modelMeshWorldMatrices[1] = Matrix.CreateTranslation(Vector3.Zero);
 
-                m.chopperMeshWorldMatrices[2] = Matrix.CreateTranslation(m.chopperMeshWorldMatrices[2].Translation)
+                m.modelMeshWorldMatrices[2] = Matrix.CreateTranslation(m.modelMeshWorldMatrices[2].Translation)
                     //* Matrix.CreateRotationX(chopper.rotorAngle)
                     * Matrix.CreateFromQuaternion(qX)
-                    * Matrix.CreateTranslation(-m.chopperMeshWorldMatrices[2].Translation);
+                    * Matrix.CreateTranslation(-m.modelMeshWorldMatrices[2].Translation);
                 chopper.rotorAngle += .003f;
             }
         }
@@ -95,7 +95,7 @@ namespace GameEngine.Systems
                         be.EnableDefaultLighting();
                         be.PreferPerPixelLighting = true;
 
-                        be.World = mesh.ParentBone.Transform * m.chopperMeshWorldMatrices[index] * worldMatrix;
+                        be.World = mesh.ParentBone.Transform * m.modelMeshWorldMatrices[index] * worldMatrix;
                         be.View = camera.viewMatrix;
                         be.Projection = camera.projectionMatrix;
                     }

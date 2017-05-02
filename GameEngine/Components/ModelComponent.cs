@@ -17,7 +17,7 @@ namespace GameEngine.Components
         public Matrix scale { get; protected set; }
         public Matrix translation { get; protected set; }
         public Matrix rotation { get; protected set; }
-        public Matrix[] chopperMeshWorldMatrices { get; protected set; }
+        public Matrix[] modelMeshWorldMatrices { get; protected set; }
 
         public ModelComponent(Model m, float scale, Vector3 translation, 
                               float rotationx, float rotationy, float rotationz, bool chopper)
@@ -29,14 +29,13 @@ namespace GameEngine.Components
                      * Matrix.CreateRotationY(rotationy)
                      * Matrix.CreateRotationZ(rotationz);
 
-            if (chopper)
-            {
-                chopperMeshWorldMatrices = new Matrix[3];
-                ModelMesh[] meshes = model.Meshes.ToArray();
 
-                chopperMeshWorldMatrices[0] = Matrix.CreateTranslation(meshes[0].ParentBone.Transform.Translation);
-                chopperMeshWorldMatrices[1] = Matrix.Identity;
-                chopperMeshWorldMatrices[2] = Matrix.CreateTranslation(meshes[2].ParentBone.Transform.Translation);
+            modelMeshWorldMatrices = new Matrix[model.Meshes.Count];
+            ModelMesh[] meshes = model.Meshes.ToArray();
+
+            for (int i = 0; i < model.Meshes.Count; i++)
+            {
+                modelMeshWorldMatrices[i] = Matrix.CreateTranslation(meshes[i].ParentBone.Transform.Translation);
             }
         }
 

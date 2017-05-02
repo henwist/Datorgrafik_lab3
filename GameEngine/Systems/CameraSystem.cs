@@ -28,7 +28,7 @@ namespace GameEngine.Systems
 
         private CameraSystem()
         {
-            
+
         }
 
 
@@ -49,6 +49,6 @@ namespace GameEngine.Systems
                 curCam.viewMatrix = Matrix.CreateLookAt(curCam.cameraPosition, transform.position, up);
                 curCam.projectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.AspectRatio, 0.2f, 500f);
             }
-            }
+        }
     }
 }
