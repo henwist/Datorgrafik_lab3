@@ -12,6 +12,14 @@ namespace Datorgrafik_lab3
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        BasicEffect effect;
+
+        Model plane;
+
+        Matrix view;
+        Matrix world = Matrix.Identity;
+        Matrix projection;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -26,7 +34,9 @@ namespace Datorgrafik_lab3
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            view = Matrix.CreateLookAt(new Vector3(0,-25,50), Vector3.Zero, Vector3.Up);
+            projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, GraphicsDevice.Viewport.AspectRatio, 1f, 200f);
+            effect = new BasicEffect(GraphicsDevice);
 
             base.Initialize();
         }
@@ -40,6 +50,7 @@ namespace Datorgrafik_lab3
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            plane = Content.Load<Model>(@"models/plane");
             // TODO: use this.Content to load your game content here
         }
 
@@ -75,8 +86,22 @@ namespace Datorgrafik_lab3
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
 
+            //foreach(EffectPass pass in effect.CurrentTechnique.Passes)
+            //{
+            //    pass.Apply();
+            //}
+
+            foreach (ModelMesh mesh in plane.Meshes)
+            {
+                foreach (BasicEffect be in mesh.Effects)
+                {
+                    be.World = world;
+                    be.Projection = projection;
+                    be.View = view;
+                }
+                mesh.Draw();
+            }
             base.Draw(gameTime);
         }
     }
