@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datorgrafik_lab3", "Datorgrafik_lab3\Datorgrafik_lab3.csproj", "{DC5AAEF7-9345-40C4-AF47-8FBF00248090}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameEngine", "..\..\Datorgrafik_lab1\GameEngine\GameEngine.csproj", "{F7BCBA1E-DD99-4BDA-9034-76C4DAB60203}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameEngine", "..\GameEngine\GameEngine.csproj", "{F7BCBA1E-DD99-4BDA-9034-76C4DAB60203}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

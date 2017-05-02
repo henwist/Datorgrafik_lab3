@@ -106,41 +106,6 @@ namespace GameEngine.Systems
                 Quaternion extraRot = Quaternion.CreateFromAxisAngle(axis, angle);
                 extraRot.Normalize();
                 transform.qRot *= extraRot;
-
-                //float moveSpeed = (float)gameTime.ElapsedGameTime.TotalMilliseconds / 500f;
-                //Move(ref transform.position, transform.qRot, moveSpeed);
-
-                //if (Keyboard.GetState().IsKeyDown(Keys.W))
-                //{
-                //    Matrix movement = Matrix.CreateRotationY(transform.rotation);
-                //    Vector3 v = new Vector3(0, 0, transform.speed);
-                //    v = Vector3.Transform(v, movement);
-
-                //    transform.position.Z += v.Z;
-                //    transform.position.Z += v.X;
-                //    //camera.cameraPosition += camera.cameraDirection * transform.speed;
-                //}
-                //if (Keyboard.GetState().IsKeyDown(Keys.S))
-                //{
-
-                //    Matrix movement = Matrix.CreateRotationY(transform.rotation);
-                //    Vector3 v = new Vector3(0, 0, -transform.speed);
-                //    v = Vector3.Transform(v, movement);
-
-                //    transform.position.Z += v.Z;
-                //    transform.position.Z += v.X;
-                //    //camera.cameraPosition -= camera.cameraDirection * transform.speed;
-
-                //}
-
-                //if (Keyboard.GetState().IsKeyDown(Keys.D))
-                //    transform.rotation += transform.speed;
-                //    //camera.cameraPosition += Vector3.Cross(camera.cameraUp, camera.cameraDirection) * transform.speed;
-                //if (Keyboard.GetState().IsKeyDown(Keys.A))
-                //    transform.rotation += transform.speed;
-                //    //camera.cameraPosition -= Vector3.Cross(camera.cameraUp, camera.cameraDirection) * transform.speed;
-
-                //camera.CreateLookAt();
             }
         }
     }
